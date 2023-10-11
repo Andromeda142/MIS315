@@ -1,0 +1,370 @@
+# calculates number of gallons needed with an output with certain amount of decimals
+#wall_area = float(input())
+#x = wall_area/350.0
+#print(f'{x:.5f}')
+
+
+
+# Assigns how many fives and ones should be given back in change, do max amount of fives first then ones
+#amount_to_change = int(input())
+#num_fives = amount_to_change // 5
+#num_ones = amount_to_change % 5
+#print('Change for $', amount_to_change)
+#print(num_fives, '$5 bill(s) and', num_ones, '$1 bill(s)')
+
+
+
+#\\ is an escape sequence that prints a backslash. \\n outputs a backslash followed by the character n, and \\\n outputs a backslash followed by a newline character.
+
+
+
+# adds up total amount of money between coins
+#nickel_input = int(input())
+#dime_input = int(input())
+#quarter_input = int(input())
+#x = nickel_input * 0.05
+#y = dime_input * 0.10
+#z = quarter_input * 0.25
+#total = x + y + z
+#print(f'Amount: ${total:.2f}')
+
+
+
+#Finds square root of a number
+#import math
+#user_input = float(input())
+#x = math.sqrt(user_input)
+#print(f'Square root of {user_input:.2f} = {x:.2f}')
+
+
+
+# Calculates volume and area of a cylinder
+#import math
+#user_radius = float(input())
+#user_height = float(input())
+#volume = math.pi * (math.pow(user_radius,2)) * user_height
+#area = ((2 * math.pi) * (user_radius * user_height)) + ((2 * math.pi) * (math.pow(user_radius,2)))
+#print(f'Volume (cubic inches): {volume:.2f}')
+#print(f'Surface Area (square inches): {area:.2f}')
+
+
+
+#converts seconds into hours, minutes, seconds
+#user_seconds = int(input())
+#hours = user_seconds // 3600
+#seconds = user_seconds % 3600
+#minutes = seconds // 60
+#seconds = user_seconds % 60
+#print("Seconds:",seconds)   #printing hours
+#print("Minutes:",minutes) #printing minutes
+#print("Hours:",hours)
+
+
+
+#Use of a loop to calculate frequencies
+#import math
+#r = math.pow(2,(1/12))
+#user_input = int(input())
+#print(f'{user_input:.2f} Hz')
+
+#for i in range(1, 4):
+    #x = user_input * (math.pow(r,i))
+    #print(f'{x:.2f} Hz')
+
+
+
+
+#-------------------------------------------------------- HW 1 -------------------------------------------------------------------
+
+#1
+#input_area, input_prefix, input_line = input().split()
+
+#input_area = int(input_area)
+#input_prefix = int(input_prefix)
+#input_line = int(input_line)
+
+#print("Country ","Phone Number")
+#print("------- ","------------")
+#print("U.S.", f"    +1 ({input_area}){input_prefix}-{input_line}")
+#print("Brazil", f"  +55 ({input_area}){input_prefix + 100}-{input_line}")
+#print("Croatia", f" +385 ({input_area}){input_prefix}-{input_line + 50}")
+#print("Egypt", f"   +20 ({input_area + 30}){input_prefix}-{input_line}")
+#print("France", f"  +33 ({input_prefix}){input_area}-{input_line}")
+
+
+
+#3
+'''
+wage, interest, comp, status, heldt = map(int, input().split())
+
+agi = wage + interest + comp
+
+if agi > 120000:
+    print(f"AGI: ${agi:,}")
+    print("Error: Income too high to use this form")
+else:
+    if status == 2:
+        deduction = 24000
+        taxincome = agi - deduction
+        if taxincome < 0:
+            taxincome = 0
+            fedtax = 0
+            taxed = taxincome - heldt
+            taxed = abs(taxed)
+            print(f"AGI: ${agi:,}")
+            print(f"Deduction: ${deduction:,}")
+            print(f"Taxable income: ${taxincome:,}")
+            print(f"Federal tax: ${fedtax:,}")
+            print(f"Tax refund: ${taxed:,}")
+        else:
+            if 0 < taxincome <= 20000:
+                fedtax = taxincome * .10
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+            elif 20000 < taxincome <= 80000:
+                fedtax = 2000 + ((taxincome - 20000) * .12)
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+            elif taxincome > 80000:
+                fedtax = 9200 + ((taxincome - 80000) * .22)
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+    else:
+        deduction = 12000
+        taxincome = agi - deduction
+        if taxincome < 0:
+            taxincome = 0
+            fedtax = 0
+            taxed = x - heldt
+            y = abs(taxed)
+            print(f"AGI: ${agi:,}")
+            print(f"Deduction: ${deduction:,}")
+            print(f"Taxable income: ${taxincome:,}")
+            print(f"Federal tax: ${fedtax:,}")
+            print(f"Tax refund: ${y:,}")
+        else:
+            if 0 < taxincome <= 10000:
+                fedtax = taxincome * .10
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+            elif 10000 < taxincome <= 40000:
+                fedtax = 1000 + ((taxincome - 10000) * .12)
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+            elif 40000 < taxincome < 85000:
+                fedtax = 4600 + ((taxincome - 40000) * .12)
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+            elif taxincome > 85000:
+                fedtax = 14500 + ((taxincome - 85000) * .24)
+                x = round(fedtax)
+                taxed = x - heldt
+                if taxed < 0:
+                    y = abs(taxed)
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Tax refund: ${y:,}")
+                else:
+                    print(f"AGI: ${agi:,}")
+                    print(f"Deduction: ${deduction:,}")
+                    print(f"Taxable income: ${taxincome:,}")
+                    print(f"Federal tax: ${x:,}")
+                    print(f"Taxes Owed: ${taxed:,}")
+
+
+
+'''
+
+
+
+#-------------------------------------------------------Zylab Lab 3-----------------------------------------------------------------------
+
+#1 Prints number of multiples in given range/number
+'''
+low = int(input())
+high = int(input())
+x = int(input())
+
+total = 0
+for num in range(low, high + 1):
+    if num % x == 0:
+        total += 1
+print(total)
+'''
+
+#2 Keep entering nums until negative num is entered, also keeps track of largest num entered
+'''
+user_num = 0
+max_num = 0
+
+while user_num >= 0:
+    user_num = int(input())
+    if max_num < user_num:
+        max_num = user_num
+print(max_num)
+'''
+
+#3 Brute force equation
+'''
+a = int(input())
+b = int(input())
+c = int(input())
+
+d = int(input())
+e = int(input())
+f = int(input())
+solution = False
+for x in range(10,-11,-1):
+    for y in range(10,-11,-1):
+        if (((a*x) + (b*y)) == c) and (((d*x) + (e*y)) == f):
+            print("x =",x,",","y =",y)
+            solution = True
+            break
+if not solution:
+    print("There is no solution")
+'''
+
+#4 Calculates number of payment it will take to pay loan
+'''
+loan = float(input())
+payment = float(input())
+interest = float(input())
+
+balance = loan
+num_payment = 0
+
+while balance > 0:
+    balance += balance * interest
+    balance -= payment
+    num_payment += 1
+
+if num_payment == 1:
+    print(num_payment,'payment')
+else:
+    print(num_payment,'payments')
+'''
+
+#5 If num is in correct range, it counts down from that num until reaching double digit num, e.g. 88
+
+'''
+user_num = int(input())
+
+if 11 <= user_num <= 100:
+    for x in range(user_num,0,-1):
+        print(x)
+        if x % 11 == 0:
+            break
+else:
+    print("Input must be 11-100")
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
