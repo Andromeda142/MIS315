@@ -1,0 +1,210 @@
+#first program for mis315
+#user_input = input("Enter your name.")
+#print('Hello',user_input,'welcome to mis315.')
+
+
+
+#8/30/2023 - Types of varibales: floats, integers, strings and bool
+#float numbers are decimals like 5.4 or 5.0
+#bool values are True and False
+
+#num_check = 56
+#if num_check %2 == 0:
+#    print(num_check,"is a even number.")
+#else:
+#    print(num_check,"is a odd number.")
+
+
+
+#num_celsius = 30
+#num_kelvin = num_celsius + 273.15
+#print(num_celsius,'in Celsius converted to Kelvin is',num_kelvin)
+
+
+
+#9/6/2023
+#def triangle_p():
+
+    #side1 = float(input("Enter side 1"))
+    #side2 = float(input("Enter side 2"))
+    #side3 = float(input("Enter side 3"))
+
+    #if (side3 - side2) < side1 < (side3 + side2):
+        #p = side1 + side2 + side3
+        #print("The permieter is",p)
+        #triangle_p()
+    #else:
+        #print("Not a valid triangle.")
+        #triangle_p()
+
+#triangle_p()
+
+
+
+#9/15/2023
+
+#speed_limit, user_speed = int(input("Enter the speed limit and your speed:")).split()
+
+#calc = user_speed - speed_limit
+
+#if calc > 0:
+    #if 0 < calc <= 10:
+        #print("$50 ticket")
+    #elif 10 < calc <= 25:
+        #print('$75 ticket')
+    #elif 25 < calc <= 50:
+        #print('$100 ticket')
+    #else:
+        #print('Go to jail')
+#elif calc <= 0:
+    #print('No ticket for you')
+#else:
+    #print("Invalid Input.")
+
+
+#---------------------------------------9/18/2023 - Loops------------------------------------------------------------
+
+#var1, var2 = input("Enter year of birth and graduation year").split()
+#print(var1)
+#print(var2)
+
+
+#for loop examples
+
+#integer1, integer2 = map(int, input().split())
+#x = min(integer1, integer2)
+#y = max(integer1, integer2)
+#num_sum = 0
+#for i in range(x, y + 1):
+    #num_sum += i
+#print("Sum of numbers =",num_sum)
+
+#max_num = 0
+#for i in range(1, 10):
+    #user = float(input())
+    #if max_num < user:
+        #max_num = user
+#print(max_num)
+
+
+#-----------------------------------------9/22/2023 Loops continued--------------------------------------------------
+
+
+# Printing star pattern
+
+#Option A
+#for i in range(1,6):
+    #x = i * '*'
+    #print(x)
+
+#Optionn B
+#for i in range(6):
+    #for j in range(i):
+        #print("*", end="")
+    #print("")
+
+
+#----------------------------------------9/25/2023 Loops continued-----------------------------------------------
+
+# Printing a multiplication table
+
+#for i in range(1,11):
+    #for j in range(1,11):
+        #print(i*j,end=" ")
+    #print("")
+
+
+#---------------------------------------10/02/2023 Strings and Slicing---------------------------------------------------------
+
+'''
+fruit = 'banana'
+character = fruit[4]
+print(character)
+'''
+
+
+# Iterate through a string, length gets length of string, then loops through in the range of the given length
+'''
+fruit = 'strawberry is good'
+length = len(fruit)
+for i in range(length):
+    character = fruit[i]
+    print(character, end='')
+print("")
+'''
+
+
+'''
+user_input = input()
+for i in range(len(user_input)):
+    character = user_input[i]
+    print(character, end='')
+print("")
+'''
+
+
+'''
+#slicing
+fruit = "banana"
+characters = fruit[2:5]
+print(characters)
+'''
+
+#fruit(:3) ---- Assumes to start from beginning and end at 3(noninclusive)
+#fruit(4:) ---- Assumes to start from four and go until the end 
+
+
+#--------------------------------------10/04/2023 Strings/slicing continued--------------------------------------------------
+
+#adds in a way to change the step/increment
+#a = '0123456789'
+#print(a[0 : 8 : 2])
+
+
+#print("Line 1\nLine 2") # Prints Line 2 on a new line
+
+#print('It\'s my bday') # Doesnt end string with quote mark, can use single or double quote
+
+# Multi-line strings
+'''
+text = """The quick brown fox jumped over the lazy dog
+That fox will not stop jumping.
+The dog thinks its kind of annoying"""
+'''
+
+#.title() Makes every first letter a uppercase, and the rest lowercase
+#.strip() removes any leading or trailing white space, Ex: "  test string" ----> "test string"
+# You can chain multiple string methods, Ex: fruit.strip().title()
+
+
+'''
+search = input("Enter word to search for.").lower().strip()
+text = input("Enter your text you want to search.").lower().strip()
+
+if search in text:
+    count = text.count(search)
+    print("Word found in text.")
+    print("Word appeared",count,"time(s) in the text.")
+else:
+    print("Word not found in text.")
+'''
+
+
+#-----------------------------------------10/09/23 Review for Exam 1-------------------------------------------------------
+
+
+# A variable is a container
+    # Variable name can not start with a number, cant use a space or dash, etc
+
+# Two types of errors: Syntax Error and Runtime Error
+    # Runtime Error Ex: Input gets wrong input, Index error
+
+
+'''
+#Repeat a process as much as the user wants
+repeat = 'yes'
+while repeat == 'yes':
+    repeat = input("Would you like to run again?")
+'''
+
+
