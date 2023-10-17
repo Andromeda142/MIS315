@@ -1,0 +1,67 @@
+#----------------------------------------------------------------------Common list operations-------------------------------------------------------------------------------------
+
+list('X') : creates a list
+
+my_list[i] = y : Changes the value at index i to y
+
+del my_list[i] : Deletes the value at index i
+
+#--------------------------------------------------------------------- Adding Elements to a list-------------------------------------------------------------------------------
+
+my_list.append(x) : Adds an item to the end of the list 
+
+my_list.extend([x]) : Adds all the items in x to the end of the list
+
+my_list.insert(i,x) : Inserts value x into list before postion i
+
+#--------------------------------------------------------------------- Delteting Elements -----------------------------------------------------------------------------------------------
+
+my_list.remove(x) : Removes first item from list with value x
+
+my_list.pop(i) : Remove and return item at position i in list. If left blank it will pop last item in list
+
+#--------------------------------------------------------------------- Modifying Elements -------------------------------------------------------------------------------------------------
+
+my_list.sort() : Sort the items of list in-place, asecding left ---> right
+
+my_list.reverse() : Reverse the order of the list
+
+#--------------------------------------------------------------------- Miscellaneous ---------------------------------------------------------------------------------------------------
+
+my_list.index(x) : Return the index of first item in list with value x
+
+my_list.count(x) : Counts the number of times the value x appears in the list
+
+#--------------------------------------------------------------------- Built in Functions Supporting Lists --------------------------------------------------------------------------------------
+
+all(my_list) : Returns True if every element in the list is != 0, or if the list is empty
+
+any(my_list) : Returns True if any element is != 0, or empty
+
+max(my_list) : Returns max value of the list
+
+min(my_list) : Returns min value of the list
+
+sum(my_list) : Gets the sume of all the values in the list, only works for integers
+
+#--------------------------------------------------------------------- Common List Splicing Operations for Lists -------------------------------------------------------------------------
+
+my_list[start:end] : Get a list from start to end, end is exclusive
+
+my_list[start:end:stride] : Get a list from start to end, with a stride
+      Example: my_list = [5, 10, 20, 40, 80] -----> print(my_list[0:5:3]) ------> [5, 40]
+
+my_list[:] : Returns a copy of the list
+
+
+
+
+
+
+
+
+
+
+
+
+
