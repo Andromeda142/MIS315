@@ -1,0 +1,202 @@
+# 1 Write a function max_magnitude() with three integer parameters that returns the largest magnitude value.
+'''
+def max_magnitude(user_val1, user_val2, user_val3):
+
+    max_value = max(abs(user_val1), abs(user_val2), abs(user_val3))
+
+    if (max_value==abs(user_val1)):
+        return user_val1
+    elif (max_value==abs(user_val2)):
+        return user_val2
+    else:
+        return user_val3
+
+if __name__ == '__main__':
+    user_val1 = int(input())
+    user_val2 = int(input())
+    user_val3 = int(input())
+    print(max_magnitude(user_val1, user_val2, user_val3))
+'''
+
+# 2
+'''
+def feet_to_steps(user_feet):
+
+    math = int(user_feet / 2.5)
+    return math
+
+user_feet = float(input())
+print(feet_to_steps(user_feet))
+'''
+
+# 3
+'''
+def jiffies_to_seconds(jiffies):
+    return jiffies / 100
+
+jiffies = float(input())
+print(f'{jiffies_to_seconds(jiffies):.3f}')
+'''
+
+# 4
+
+'''
+def days_in_feb(user_year):
+
+    if user_year % 4 == 0 and (user_year % 100 != 0 or user_year % 400 == 0):
+        return True
+    else:
+        return False
+
+user_year = int(input())
+days_in_feb(user_year)
+
+if days_in_feb(user_year):
+    print(f"{user_year} has 29 days in February.")
+else:
+    print(f"{user_year} has 28 days in February.")
+'''
+
+
+# 5
+'''
+def int_to_reverse_binary(integer_value):
+    my_string = ""
+    while integer_value > 0:
+        remainder = integer_value % 2
+        my_string += str(remainder)
+        integer_value //= 2
+    return my_string
+
+def string_reverse(input_string):
+    return input_string[:: -1]
+
+
+if __name__ == '__main__':
+
+    integer_value = int(input())
+
+    input_string = int_to_reverse_binary(integer_value)
+
+    print(string_reverse(input_string))
+'''
+
+# 6
+'''
+def swap_values(user_val1, user_val2, user_val3, user_val4):
+
+    return user_val2, user_val1, user_val4, user_val3
+
+if __name__ == '__main__':
+
+    user_val1 = int(input())
+    user_val2 = int(input())
+    user_val3 = int(input())
+    user_val4 = int(input())
+
+    user_val1, user_val2, user_val3, user_val4 = swap_values(user_val1, user_val2, user_val3, user_val4)
+
+    print(user_val1, user_val2, user_val3, user_val4)
+'''
+
+# 7
+'''
+def get_user_values():
+    count = 0
+    user_values = []
+    range_num = int(input())
+
+    while count < range_num:
+        nums = int(input())
+        user_values.append(nums)
+        count += 1
+    upper_threshold = int(input())
+
+    return user_values, upper_threshold
+
+def ints_less_than_or_equal_to_threshold(user_values, upper_threshold):
+    new_list = []
+    for i in user_values:
+        if i <= upper_threshold:
+            new_list.append(i)
+    return new_list
+
+
+if __name__ == '__main__':
+    user_values, upper_threshold = get_user_values()
+    res_values = ints_less_than_or_equal_to_threshold(user_values, upper_threshold)
+
+    for value in res_values:
+        print(value)
+'''
+
+# 8
+'''
+def convert(d):
+
+    return int(d)
+
+if __name__ == '__main__':
+    print(convert(19.9))
+    print(convert(3.1))
+'''
+
+# 9
+'''
+def exact_change(user_total):
+    num_quarters = user_total // 25
+    user_total %= 25
+    num_dimes = user_total // 10
+    user_total %= 10
+    num_nickels = user_total // 5
+    user_total %= 5
+    num_pennies = user_total
+
+    return(num_pennis, num_nickels, num_dimes, num_quarters)
+
+if __name__ == '__main__':
+    input_val = int(input())
+    num_pennis, num_nickels, num_dimes, num_quarters = exact_change(input_val)
+
+
+    if input_val <=0:
+        print('no change')
+
+    else:
+        if num_pennies >1:
+            print('%d pennies' % num_pennies)
+        elif num_pennies ==1:
+            print('%d penny' % num_pennies)
+
+        if num_nickels > 1:
+            print('%d nickels' % num_nickels)
+        elif num_nickels == 1:
+            print('%d nickel' % num_nickels)
+
+        if num_dimes > 1:
+            print('%d dimes' % num_dimes)
+        elif num_dimes == 1:
+            print('%d dime' % num_dimes)
+
+        if num_quarters > 1:
+            print('%d quarters' % num_quarters)
+        elif num_quarters ==1:
+            print('%d quarter' % num_quarters)
+
+'''
+
+# 10
+'''
+def driving_cost(miles_per_gallon, dollars_per_gallon, miles_driven = 5.0):
+    return (miles_driven / miles_per_gallon) * dollars_per_gallon
+
+if __name__ == '__main__':
+
+    miles_per_gallon = float(input())
+    dollars_per_gallon = float(input())
+
+    price = driving_cost(miles_per_gallon, dollars_per_gallon)
+    print(f'{price * 2:.2f}')
+    print(f'{price * 10:.2f}')
+    print(f'{price * 80:.2f}')
+'''
