@@ -1,0 +1,66 @@
+filename = input()
+
+with open(filename, "r") as f:
+    file_contents = f.read()
+
+if "Available" in file_contents:
+    print(file_contents)
+'''
+
+category = []
+name = []
+description = []
+availability = []
+new_list = []
+
+my_ist = open("food.txt").readlines()
+
+
+for i in my_ist:
+    if "Available" in i:
+        #print(i)
+        new_list.append(i)
+
+'''
+category.append(i)
+name.append(i)
+description.append(i)
+availability.append(i)
+'''
+print(new_list)
+
+category.append(new_list[0])
+
+print(category)
+
+
+
+----------------------------------------------------------------------------------
+
+
+def read_file(filename):
+    category = []
+    name = []
+    description = []
+    availability = []
+
+    with open(filename, 'r') as file:
+
+        for line in file:
+
+            data = line.rstrip().split('\t')
+
+            category.append(data[0])
+            name.append(data[1])
+            description.append(data[2])
+            availability.append(data[3])
+
+    return category, name, description, availability
+
+filename = input()
+
+read_file(filename)
+
+for i in range(len(category)):
+    if availability[i] == 'Available':
+        print(f"{name[i]} ({category[i]}) - {description[i]}")
