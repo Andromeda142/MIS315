@@ -64,3 +64,31 @@ read_file(filename)
 for i in range(len(category)):
     if availability[i] == 'Available':
         print(f"{name[i]} ({category[i]}) - {description[i]}")
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+category = []
+name = []
+description = []
+
+def open_file(filename):
+    with open(filename, "r") as f:
+        for i in f:
+            if "Available" in i:
+                file = i.split("  ")
+                file = list(filter(None, file))
+                category.append(file[0])
+                name.append(file[1])
+                description.append(file[2])
+
+    return category, name, description
+
+
+filename = input()
+
+open_file(filename)
+
+for i in range(len(category)):
+    print(f"{name[i]} ({category[i]}) -- {description[i]}")
