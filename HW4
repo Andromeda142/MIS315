@@ -1,74 +1,101 @@
-filename = input()
-
-with open(filename, "r") as f:
-    file_contents = f.read()
-
-if "Available" in file_contents:
-    print(file_contents)
-'''
-
-category = []
-name = []
-description = []
-availability = []
-new_list = []
-
-my_ist = open("food.txt").readlines()
-
-
-for i in my_ist:
-    if "Available" in i:
-        #print(i)
-        new_list.append(i)
+# 1
 
 '''
-category.append(i)
-name.append(i)
-description.append(i)
-availability.append(i)
+def read_customer_data(filename):
+    """Read and return data from filename as a list of lists (name, state, debt)"""
+    names = []
+    states = []
+    debts = []
+
+    with open(filename) as f:
+        rows = f.readlines()
+    for row in rows:
+        row = row.split(',')
+        names.append(row[0])
+        states.append(row[1])
+        debts.append(float(row[2].strip()))
+    return names, states, debts
+
+
+def find_max_debt(names, debts, num_customers):
+    max_value = 0
+    for n in debts[0 : num_customers + 1]:
+        if max_value == 0 or n > max_value:
+            max_value = n
+
+    max_debt_name = debts.index(max_value)
+    return names[max_debt_name]
+
+def count_names(names, num_customers, search):
+    count = 0
+    for i in names[0 : num_customers + 1]:
+        if i.startswith(search):
+            count += 1
+    return count
+
+
+if __name__ == '__main__':
+    num_customers = int(input())
+
+    names, states, debts = read_customer_data("CustomerData.csv")
+
+    debt_limit = int(input())
+    search = input()
+    state_abbreviation = input()
+
+    over_debt = 0
+    debt_free = 0
+    for i in debts[0 : num_customers]:
+        if i > debt_limit:
+            over_debt += 1
+        elif i == 0:
+            debt_free += 1
+            
+    state_names = []
+    state_debts = []
+    for i in range(len(states)):
+        if states[i] == state_abbreviation:
+            state_names.append(names[i])
+            state_debts.append(debts[i])
+
+   
+    state_max_debt = max(state_debts)
+    state_max_debt_index = state_debts.index(state_max_debt)
+    state_highest_debt_name = state_names[state_max_debt_index]
+
+    
+    state_search_count = 0
+    for name in state_names:
+        if name.startswith(search):
+            state_search_count += 1
+
+   
+    state_over_debt = 0
+    state_debt_free = 0
+    for debt in state_debts:
+        if debt > debt_limit:
+            state_over_debt += 1
+        elif debt == 0:
+            state_debt_free += 1
+            
+    print("U.S. Report")
+    print(f"Customers: {num_customers}")
+    print(f"Highest debt: {find_max_debt(names, debts, num_customers)}")
+    print(f'Customer names that start with "{search}": {count_names(names, num_customers, search)}')
+    print(f"Customers with debt over ${debt_limit}: {over_debt}")
+    print(f"Customers debt free: {debt_free}")
+
+    print(f"\n{state_abbreviation} Report")
+    print(f"Customers: {len(state_names)}")
+    print(f"Highest debt: {state_highest_debt_name}")
+    print(f'Customer names that start with "{search}": {state_search_count}')
+    print(f"Customers with debt over ${debt_limit}: {state_over_debt}")
+    print(f"Customers debt free: {state_debt_free}")
 '''
-print(new_list)
 
-category.append(new_list[0])
+# 2
 
-print(category)
-
-
-
-----------------------------------------------------------------------------------
-
-
-def read_file(filename):
-    category = []
-    name = []
-    description = []
-    availability = []
-
-    with open(filename, 'r') as file:
-
-        for line in file:
-
-            data = line.rstrip().split('\t')
-
-            category.append(data[0])
-            name.append(data[1])
-            description.append(data[2])
-            availability.append(data[3])
-
-    return category, name, description, availability
-
-filename = input()
-
-read_file(filename)
-
-for i in range(len(category)):
-    if availability[i] == 'Available':
-        print(f"{name[i]} ({category[i]}) - {description[i]}")
-
-
-------------------------------------------------------------------------------------------------------------
-
-
+'''
 category = []
 name = []
 description = []
@@ -92,3 +119,64 @@ open_file(filename)
 
 for i in range(len(category)):
     print(f"{name[i]} ({category[i]}) -- {description[i]}")
+'''
+
+
+
+# 3
+''''
+filename = input()
+movies = {}
+
+with open(filename, 'r') as f:
+  rows = f.readlines()
+  for i in rows:
+    showtime , title, rating = i.strip().split(",")
+    if title in movies:
+      movies[title]["showtimes"].append(showtime)
+
+    else:
+      movies[title] = {"rating": rating, "showtimes": [showtime]}
+
+
+for movie, item in movies.items():
+  showtime = " ".join(item["showtimes"])
+  rating = item["rating"]
+  title = movie[:44]
+  print(f'{title:<44} | {rating:>5} | {showtime}')
+'''
+
+# 4
+'''
+import math
+
+
+def wall_area(wall_height, wall_width):
+    return wall_height * wall_width
+
+def paint_needed(wall_area_calc):
+    return (wall_area_calc / 350)
+
+wall_height = float(input())
+
+wall_width = float(input())
+
+paint_cost = float(input())
+
+wall_area_calc = wall_area(wall_height, wall_width)
+
+paint_needed_calc = paint_needed(wall_area_calc)
+
+cans = math.ceil(paint_needed_calc)
+
+paint_can_cost = cans * paint_cost
+
+sales_tax = paint_can_cost * 0.07
+
+print(f"Wall area: {wall_area_calc:.1f} sq ft")
+print(f"Paint needed: {paint_needed_calc:.3f} gallons")
+print(f"Cans needed: {cans} can(s)")
+print(f"Paint cost: ${paint_can_cost:.2f}")
+print(f"Sales tax: ${sales_tax:.2f}")
+print(f"Total cost: ${paint_can_cost + sales_tax:.2f}")
+'''
